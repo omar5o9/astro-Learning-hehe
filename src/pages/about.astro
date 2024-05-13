@@ -1,0 +1,54 @@
+---
+
+const pageTitle = "About Me";
+
+const identity = {
+  firstName: "Yomali",
+  country: "Sri Lanka",
+  occupation: "Programmer",
+  hobbies: ["photography", "birdwatching", "baseball"],
+};
+
+const skills = ["HTML", "CSS", "JavaScript", "React", "Astro", "Writing Docs"];
+const happy = true;
+const finished = false;
+const goal = 3;
+
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="https://images-wixmp-ed30a86b8c4ca887773594c2.wixmp.com/f/3d2ba117-b674-42b8-b64d-66efaeacfa42/dh70q96-16bb203d-3ce0-44c2-af8a-7ab2540431b6.png?token=eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJ1cm46YXBwOjdlMGQxODg5ODIyNjQzNzNhNWYwZDQxNWVhMGQyNmUwIiwiaXNzIjoidXJuOmFwcDo3ZTBkMTg4OTgyMjY0MzczYTVmMGQ0MTVlYTBkMjZlMCIsIm9iaiI6W1t7InBhdGgiOiJcL2ZcLzNkMmJhMTE3LWI2NzQtNDJiOC1iNjRkLTY2ZWZhZWFjZmE0MlwvZGg3MHE5Ni0xNmJiMjAzZC0zY2UwLTQ0YzItYWY4YS03YWIyNTQwNDMxYjYucG5nIn1dXSwiYXVkIjpbInVybjpzZXJ2aWNlOmZpbGUuZG93bmxvYWQiXX0.Qvd8s-fFLCtFGT0qmCoKQbIVbF4s2IEcsXfR6Gmz-Ho" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>{pageTitle}</title>
+	</head>
+	<body>
+        <a href="/">Home</a>
+		<a href="/about/">About</a>
+        <a href="/blog/">Blog</a>
+
+
+		<h1>{pageTitle}</h1>
+
+        <p>Here are a few facts about me:</p>
+        <ul>
+        <li>My name is {identity.firstName}.</li>
+        <li>I live in {identity.country} and I work as a {identity.occupation}.</li>
+            {identity.hobbies.length >= 2 &&
+                <li>Two of my hobbies are: {identity.hobbies[0]} and {identity.hobbies[1]}</li>
+            }
+        </ul>
+        <p>My skills are:</p>
+        <ul>
+            {skills.map((skill) => <li>{skill}</li>)}
+        </ul>
+        {happy && <p>I am happy to be learning Astro!</p>}
+
+        {finished && <p>I finished this tutorial!</p>}
+
+        {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
+
+	</body>
+</html>
